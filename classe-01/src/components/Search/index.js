@@ -8,9 +8,9 @@ export default function BasicTextFields() {
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+      <TextField id="outlined-basic" label="Search new pokemon" variant="outlined" />
       <Button variant="contained" color="secondary">
-        Secondary
+        SEARCH
       </Button>
     </form>
 
