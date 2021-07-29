@@ -3,10 +3,10 @@ import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme) => ({
     root: {
       '& > *': {
-        margin: theme.spacing(1),
-        width: '25ch',
+        margin: `2vh 0`,
+        width: '100%',
         display: 'flex',
-        flexDirection: 'column', 
+        flexDirection: 'column',
       },
     },
 }));

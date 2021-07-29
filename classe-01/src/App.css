@@ -3,3 +3,9 @@
     margin: 0;
     padding: 0;
 }
+
+.container {
+    margin-top: 5vh;
+    display: grid;
+    place-content: center;
+}

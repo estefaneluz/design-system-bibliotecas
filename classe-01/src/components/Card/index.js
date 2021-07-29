@@ -13,6 +13,7 @@ export default function RecipeReviewCard() {
   return (
     <Card className={classes.root}>
       <CardHeader
+        className={classes.header}
         title="Pikachu"
       />
       <CardMedia

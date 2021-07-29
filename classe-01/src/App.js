@@ -7,8 +7,10 @@ function App() {
   return (
     <>
       <Navbar/>
-      <Card/>
-      <Search/>
+      <main className="container">
+        <Card/>
+        <Search/>
+      </main>
     </>
   );
 }

@@ -5,6 +5,9 @@ export const useStyles = makeStyles((theme) => ({
     root: {
       maxWidth: 345,
     },
+    header: {
+      textAlign: 'center',
+    },
     media: {
       height: 0,
       paddingTop: '56.25%', // 16:9
