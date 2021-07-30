@@ -3,13 +3,19 @@ import Card from './components/Card'
 import Search from './components/Search'
 import Navbar from './components/Navbar'
 import { useEffect, useState } from 'react'
+import { useLocalStorage } from 'react-use'
 
 function App() {
   const [pokemon, setPokemon] = useState({});
+  const [pokemonStorage, setPokemonStorage, remove] = useLocalStorage('pokemon', []);
 
   useEffect(() => {
     pesquisarPokemon('pikachu');
   }, []);
+
+  useEffect(()=> {
+    setPokemonStorage([...pokemonStorage, pokemon]);
+  },[pokemon]);
 
   async function pesquisarPokemon(search){
     try {
