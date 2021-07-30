@@ -24,7 +24,6 @@ function App() {
         name: name
       });
 
-      console.log(pokemon.image);
     } 
     catch (error) {
       return error.message;
@@ -35,7 +34,7 @@ function App() {
     <>
       <Navbar/>
       <main className="container">
-        <Card/>
+        {pokemon.name && <Card pokemon={pokemon}/>}
         <Search/>
       </main>
     </>

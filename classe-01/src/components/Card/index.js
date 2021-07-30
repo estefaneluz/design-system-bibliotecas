@@ -7,26 +7,28 @@ import Typography from '@material-ui/core/Typography';
 import ListItemText from '@material-ui/core/ListItemText';
 import { useStyles } from './style';
 
-export default function RecipeReviewCard() {
+export default function RecipeReviewCard({pokemon}) {
   const classes = useStyles();
+  const {image, name, abilities} = pokemon;
 
   return (
-    <Card className={classes.root}>
+    <Card>
       <CardHeader
         className={classes.header}
-        title="Pikachu"
+        title={name}
       />
       <CardMedia
         className={classes.media}
-        image=""
-        title="Pikachu"
+        image={image}
+        title={name}
       />
       <CardContent>
         <Typography variant="h6" component="h2">
-            Abilities
+          Abilities
         </Typography>
-        <ListItemText className={classes.list} primary={"Habilidade 1"} />
-        <ListItemText className={classes.list} primary={"Habilidade 2"} />
+        {abilities.map(a => (
+          <ListItemText key={a.ability.name} className={classes.list} primary={a.ability.name} />
+        ))}
       </CardContent>
     </Card>
   );
