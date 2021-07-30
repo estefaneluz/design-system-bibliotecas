@@ -15,14 +15,16 @@ function App() {
     try {
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${search.toLowerCase()}`);
 
-      const { abilities, name } = await response.json();
+      const { sprites: { other }, abilities, name } = await response.json();
+      const { dream_world: { front_default } } = other;
 
       setPokemon({
+        image: front_default,
         abilities: abilities,
         name: name
       });
 
-      console.log(pokemon.name); 
+      console.log(pokemon.image);
     } 
     catch (error) {
       return error.message;
