@@ -35,7 +35,7 @@ function App() {
       <Navbar/>
       <main className="container">
         {pokemon.name && <Card pokemon={pokemon}/>}
-        <Search/>
+        <Search pesquisarPokemon = {pesquisarPokemon}/>
       </main>
     </>
   );
