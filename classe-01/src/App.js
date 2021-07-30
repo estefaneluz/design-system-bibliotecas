@@ -7,6 +7,7 @@ import { useLocalStorage } from 'react-use'
 
 function App() {
   const [pokemon, setPokemon] = useState({});
+  const [pesquisa, setPesquisa] = useState('');
   const [pokemonStorage, setPokemonStorage, remove] = useLocalStorage('pokemon', []);
 
   useEffect(() => {
@@ -14,11 +15,20 @@ function App() {
   }, []);
 
   useEffect(()=> {
-    setPokemonStorage([...pokemonStorage, pokemon]);
+    if(!pokemonNoStorage()) setPokemonStorage([...pokemonStorage, pokemon]);
   },[pokemon]);
+
+  function pokemonNoStorage(){
+    return pokemonStorage.find(pokemon => pokemon.name === pesquisa)
+  }
 
   async function pesquisarPokemon(search){
     try {
+      
+      if(pokemonNoStorage()){
+        return setPokemon(pokemonNoStorage);
+      }
+
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${search.toLowerCase()}`);
 
       const { sprites: { other }, abilities, name } = await response.json();
@@ -41,7 +51,7 @@ function App() {
       <Navbar/>
       <main className="container">
         {pokemon.name && <Card pokemon={pokemon}/>}
-        <Search pesquisarPokemon = {pesquisarPokemon}/>
+        <Search pesquisa={pesquisa} setPesquisa={setPesquisa} pesquisarPokemon ={pesquisarPokemon}/>
       </main>
     </>
   );

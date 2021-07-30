@@ -2,11 +2,9 @@ import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { useStyles } from './style';
-import {useState} from 'react'
 
-export default function BasicTextFields({pesquisarPokemon}) {
+export default function BasicTextFields({pesquisa, setPesquisa, pesquisarPokemon}) {
   const classes = useStyles();
-  const [pesquisa, setPesquisa] = useState('');
 
   function handelSubmit(e){
     e.preventDefault();
