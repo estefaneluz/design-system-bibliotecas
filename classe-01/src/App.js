@@ -2,6 +2,7 @@ import './App.css';
 import Card from './components/Card'
 import Search from './components/Search'
 import Navbar from './components/Navbar'
+import Alert from '@material-ui/lab/Alert';
 import { useEffect, useState } from 'react'
 import { useLocalStorage } from 'react-use'
 
@@ -52,6 +53,7 @@ function App() {
       <main className="container">
         {pokemon.name && <Card pokemon={pokemon}/>}
         <Search pesquisa={pesquisa} setPesquisa={setPesquisa} pesquisarPokemon ={pesquisarPokemon}/>
+        <Alert severity="error">This is an error alert — check it out!</Alert>
       </main>
     </>
   );
