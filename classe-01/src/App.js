@@ -8,11 +8,12 @@ import { useLocalStorage } from 'react-use'
 
 function App() {
   const [pokemon, setPokemon] = useState({});
-  const [pesquisa, setPesquisa] = useState('');
+  const [pesquisa, setPesquisa] = useState('pikachu');
+  const [erro, setErro] = useState('');
   const [pokemonStorage, setPokemonStorage, remove] = useLocalStorage('pokemon', []);
 
   useEffect(() => {
-    pesquisarPokemon('pikachu');
+      pesquisarPokemon('pikachu');
   }, []);
 
   useEffect(()=> {
@@ -24,8 +25,9 @@ function App() {
   }
 
   async function pesquisarPokemon(search){
+    setErro('');
     try {
-      
+
       if(pokemonNoStorage()){
         return setPokemon(pokemonNoStorage);
       }
@@ -43,7 +45,7 @@ function App() {
 
     } 
     catch (error) {
-      return error.message;
+      return setErro("Pokemon não encontrado.");
     }
   }
 
@@ -53,7 +55,7 @@ function App() {
       <main className="container">
         {pokemon.name && <Card pokemon={pokemon}/>}
         <Search pesquisa={pesquisa} setPesquisa={setPesquisa} pesquisarPokemon ={pesquisarPokemon}/>
-        <Alert severity="error">This is an error alert — check it out!</Alert>
+        {erro && <Alert severity="error">{erro}</Alert>}
       </main>
     </>
   );
