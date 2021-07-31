@@ -2,17 +2,17 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme) => ({
     root: {
-      maxWidth: 345,
+      width: '100%',
+      marginBottom: '1vh'
     },
     header: {
       textAlign: 'center',
     },
     media: {
-      height: 0,
-      paddingTop: '56.25%', // 16:9
+      paddingTop: '100%',
     },
     list: {
-      fontSize: 14,
+      fontSize: 10,
       color: '#a9a9a9'
     }
 }));

@@ -12,7 +12,7 @@ export default function RecipeReviewCard({pokemon}) {
   const {image, name, abilities} = pokemon;
 
   return (
-    <Card>
+    <Card className={classes.root}>
       <CardHeader
         className={classes.header}
         title={name}

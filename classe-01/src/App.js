@@ -54,8 +54,13 @@ function App() {
       <Navbar/>
       <main className="container">
         {pokemon.name && <Card pokemon={pokemon}/>}
-        <Search pesquisa={pesquisa} setPesquisa={setPesquisa} pesquisarPokemon ={pesquisarPokemon}/>
         {erro && <Alert severity="error">{erro}</Alert>}
+        <Search  
+          setErro={setErro} 
+          pesquisa={pesquisa} 
+          setPesquisa={setPesquisa} 
+          pesquisarPokemon ={pesquisarPokemon}
+        />
       </main>
     </>
   );
